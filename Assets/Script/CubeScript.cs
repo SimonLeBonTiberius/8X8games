@@ -18,6 +18,9 @@ public class CubeScript : MonoBehaviour
      private Color orange = new Color(255f, 128f, 0f);
      public  float numerocol=0;
      public bool isIncontact = false;
+     public int index;
+     public int indey;
+
 
 
     // Start is called before the first frame update
@@ -29,28 +32,13 @@ public class CubeScript : MonoBehaviour
         {
             if (boardscript.colorcheck > 0)
                 boardscript.checkColor();
-                
         }
 
     }
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount > 0) { 
-        Touch tocco = Input.GetTouch(0);
-        Vector3 touchPosition = Camera.main.ScreenToWorldPoint(tocco.position);
-        touchPosition.z = 0f;
-            float dist = Vector3.Distance(touchPosition, gameObject.transform.position);
-                /* Debug.Log("posizione Tocco:" + touchPosition);
-            Debug.Log("posizione traform" + transform.position);
-            Debug.Log("Distance to other: " + dist);*/
-         if (dist < 0.5f && isIncontact) {
-                destoryCubebyTouch();
-                SpawnScript script = GetComponentInParent<SpawnScript>();
-                if (script!= null) 
-                { script.empty = true; }
-            }
-        };
+        
         if (isIncontact) {
             trans.Rotate(0f, 0f, 45f);
         }
@@ -91,16 +79,37 @@ public class CubeScript : MonoBehaviour
         }
 
     }
-    public void destoryCubebyTouch()
+    public bool CubebyTouch(Touch tocco)
     {   
-        Destroy(gameObject);
-        BoardScript boardscript = this.GetComponentInParent<BoardScript>();
         
+        Vector3 touchPosition = Camera.main.ScreenToWorldPoint(tocco.position);
+        touchPosition.z = 0f;
+        float dist = Vector3.Distance(touchPosition, gameObject.transform.position);
+        if (dist < 0.5f )
+        {
+            Debug.Log("cubotoccato"+"("+index+","+indey+")");
+           
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    
+
+    }
+
+    public void destroyCube() {
+        Destroy(gameObject);
+        SpawnScript script = GetComponentInParent<SpawnScript>();
+        if (script != null)
+        { script.empty = true; }
+
     }
 
 
-    
 
-    
+
+
 
 }

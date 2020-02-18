@@ -7,6 +7,8 @@ public class SpawnScript : MonoBehaviour
 
     [SerializeField]private GameObject cube;
     public bool empty = true;
+    public int index;
+    public int indey;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,7 @@ public class SpawnScript : MonoBehaviour
     {
         if (empty)
         {
-            spawnCube();
+            Invoke("spawnCube", 0.5f);
             empty = false;
         }
 
@@ -28,7 +30,9 @@ public class SpawnScript : MonoBehaviour
 
     void spawnCube()
     {
-        Instantiate(cube, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
+        GameObject spawncube =Instantiate(cube, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
+        spawncube.GetComponent<CubeScript>().index = this.index;
+        spawncube.GetComponent<CubeScript>().indey = this.indey;
     }
 
 }
