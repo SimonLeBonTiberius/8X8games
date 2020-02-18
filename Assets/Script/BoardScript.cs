@@ -21,7 +21,7 @@ public class BoardScript : MonoBehaviour
 
         cubearray = new GameObject[width, height];
         SetUp();
-        Invoke("checkColor", 6.0f);
+        Invoke("checkColor", 0.2f);
 
 
     } 
@@ -88,64 +88,48 @@ private void SetUp()
    public void checkColor()
     {
         colorcheck++;
-        for (int i = 0; i < width; i++)
+        float numerocolore;
+           for (int i = 0; i < width; i++)
         {
             for (int j = 0; j < height; j++)
             {
-               
-                GameObject beanSpawny = cubearray[i, j];
-                GameObject beanSpawnx = cubearray[j, i];
-                
-                 
-                CubeScript scripty = beanSpawny.GetComponentInChildren<CubeScript>();
-                CubeScript scriptx = beanSpawnx.GetComponentInChildren<CubeScript>();
-                //check verticale
-                
-                    if (numerocolorey != scripty.numerocol )
+
+                CubeScript cubocorrente = cubearray[i, j].GetComponentInChildren<CubeScript>();
+                 numerocolore = cubocorrente.numerocol;
+
+                if (cubocorrente.indey > 0)
                 {
-                    if (j < 7)
+                    if (numerocolore == cubearray[cubocorrente.index, cubocorrente.indey - 1].GetComponentInChildren<CubeScript>().numerocol )
                     {
-                        numerocolorey = scripty.numerocol;
-                        scriptprecedentey = beanSpawny;
+                        cubocorrente.isIncontact = true;
                     }
-                    else {
-                        numerocolorey = 0;
-                        scriptprecedentey = null;
-                    }
+                };
 
-                }
-                else
+                if (cubocorrente.index > 0)
                 {
-                    scripty.isIncontact = true;
-                    scriptprecedentey.GetComponentInChildren<CubeScript>().isIncontact = true;
-                 //   Debug.Log("trovato match colore" + beanSpawny.name+ "colore numero"+scripty.numerocol);
-                   
-                }
-                //check orizontale
-
-                if (numerocolorex != scriptx.numerocol)
-                {
-                    if (j < 7)
+                    if (numerocolore == cubearray[cubocorrente.index - 1, cubocorrente.indey].GetComponentInChildren<CubeScript>().numerocol)
                     {
-                        numerocolorex = scriptx.numerocol;
-                        scriptprecedentex = beanSpawnx;
+                        cubocorrente.isIncontact = true;
                     }
-                    else
-                    {
-                        numerocolorex = 0;
-                        scriptprecedentex = null;
-                    }
+                };
 
-                }
-                else
+                if (cubocorrente.index < 7)
                 {
-                    scriptx.isIncontact = true;
-                    scriptprecedentex.GetComponentInChildren<CubeScript>().isIncontact = true;
-                  //  Debug.Log("trovato match colore" + beanSpawnx.name + "colore numero" + scriptx.numerocol);
+                    if (numerocolore == cubearray[cubocorrente.index + 1, cubocorrente.indey].GetComponentInChildren<CubeScript>().numerocol )
+                    {
+                        cubocorrente.isIncontact = true;
+                    }
+                };
 
-                }
-               
-            };
+                if (cubocorrente.indey < 7)
+                {
+                    if (numerocolore == cubearray[cubocorrente.index, cubocorrente.indey + 1].GetComponentInChildren<CubeScript>().numerocol)
+                    {
+                        cubocorrente.isIncontact = true;
+                    }
+                };
+
+               };
 
         }
     }

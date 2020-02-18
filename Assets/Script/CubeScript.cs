@@ -31,7 +31,7 @@ public class CubeScript : MonoBehaviour
         if (boardscript != null )
         {
             if (boardscript.colorcheck > 0)
-                boardscript.checkColor();
+                boardscript.Invoke("checkColor",0.2f);
         }
 
     }

@@ -22,7 +22,7 @@ public class SpawnScript : MonoBehaviour
     {
         if (empty)
         {
-            Invoke("spawnCube", 0.5f);
+            Invoke("spawnCube", 0.1f);
             empty = false;
         }
 
