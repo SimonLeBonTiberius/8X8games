@@ -44,33 +44,33 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9660}
+      Script: {instanceID: 9662}
     - Class: 114
-      Script: {instanceID: 9822}
+      Script: {instanceID: 9824}
     - Class: 114
-      Script: {instanceID: 9862}
+      Script: {instanceID: 9864}
     - Class: 114
-      Script: {instanceID: 10030}
+      Script: {instanceID: 10032}
     - Class: 114
-      Script: {instanceID: 10076}
+      Script: {instanceID: 10078}
     - Class: 114
-      Script: {instanceID: 10264}
+      Script: {instanceID: 10266}
     - Class: 114
-      Script: {instanceID: 10272}
+      Script: {instanceID: 10274}
     - Class: 114
-      Script: {instanceID: 10632}
+      Script: {instanceID: 10634}
     - Class: 114
-      Script: {instanceID: 11104}
+      Script: {instanceID: 10814}
     - Class: 114
-      Script: {instanceID: 11474}
+      Script: {instanceID: 11108}
     - Class: 114
-      Script: {instanceID: 11504}
+      Script: {instanceID: 11290}
     - Class: 114
-      Script: {instanceID: 11526}
+      Script: {instanceID: 11480}
     - Class: 114
-      Script: {instanceID: 34078}
+      Script: {instanceID: 11510}
     - Class: 114
-      Script: {instanceID: 34080}
+      Script: {instanceID: 11532}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -348,6 +348,12 @@ ScriptsOnlyBuild:
     className: VerticalLayoutGroup
   - hash:
       serializedVersion: 2
+      Hash: 71bead3d95fc4855caa0c34b0de1bf95
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ScorePointScript
+  - hash:
+      serializedVersion: 2
       Hash: 12e64d607873da15ad3f833620350d51
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -430,6 +436,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
+  - hash:
+      serializedVersion: 2
+      Hash: 71bead3d95fc4855caa0c34b0de1bf95
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HighScoreScript
   - hash:
       serializedVersion: 2
       Hash: 5372ed2ce39229b1ac910757999a8be2
@@ -532,19 +544,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bead3d95fc4855caa0c34b0de1bf95
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ScorePointScript
-  - hash:
-      serializedVersion: 2
-      Hash: 71bead3d95fc4855caa0c34b0de1bf95
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: HighScoreScript
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/GitHub/8X8games/com.SimoneTiberti.88Games/88Game.apk
+  playerPath: C:/GitHub/8X8games/com.SimoneTiberti.88Games/88Game.0.0.0.1apk.apk

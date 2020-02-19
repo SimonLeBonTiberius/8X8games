@@ -12,13 +12,13 @@ public class HighScoreScript : MonoBehaviour
     void OnEnable()
     {
         score = GetComponent<Text>();
-        score.text = "0";
+      
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        score.text = punteggio.ToString();
+        score.text = PlayerPrefs.GetInt("HighScore").ToString();
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpawnScript : MonoBehaviour
 {
 
-    [SerializeField]private GameObject cube;
+    [SerializeField] private GameObject cube;
     public bool empty = true;
     public int index;
     public int indey;
@@ -30,7 +30,7 @@ public class SpawnScript : MonoBehaviour
 
     void spawnCube()
     {
-        GameObject spawncube =Instantiate(cube, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
+        GameObject spawncube = Instantiate(cube, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
         spawncube.GetComponent<CubeScript>().index = this.index;
         spawncube.GetComponent<CubeScript>().indey = this.indey;
     }

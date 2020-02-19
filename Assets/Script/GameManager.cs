@@ -13,20 +13,21 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPage;
     public GameObject gamePage;
     public GameObject boardGame;
-    
-    
+    int score = 0;
 
-    enum PageState {
+
+    enum PageState
+    {
         Start,
         GameOver,
         Game,
         GameOverForTime
 
     }
-    int score = 0;
-    
 
-    
+
+
+
 
     private void Awake()
     {
@@ -41,18 +42,19 @@ public class GameManager : MonoBehaviour
     }
     void OnDisable()
     {
-        
+
         BoardScript.OnEndGame -= OnEndGame;
         BoardScript.OnScored -= OnScored;
     }
     void OnEndGame()
     {
         SetPageState(PageState.GameOver);
-            
-       
+
+
     }
-    void OnScored() {
-       score= PlayerPrefs.GetInt("Score");
+    void OnScored()
+    {
+        score = PlayerPrefs.GetInt("Score");
         ScorePointScript scorepointscript = gamePage.GetComponentInChildren<ScorePointScript>();
         scorepointscript.punteggio = score;
         ScorePointScript scorepointscriptover = gameOverPage.GetComponentInChildren<ScorePointScript>();
@@ -60,19 +62,17 @@ public class GameManager : MonoBehaviour
         int highscore = PlayerPrefs.GetInt("HighScore");
         if (score > highscore)
         {
-             PlayerPrefs.SetInt("HighScore", score);
-            HighScoreScript higscorepointscript = gamePage.GetComponentInChildren<HighScoreScript>();
-            higscorepointscript.punteggio = score;
-            HighScoreScript higscorepointscriptover = gameOverPage.GetComponentInChildren<HighScoreScript>();
-            higscorepointscriptover.punteggio = score;
-
+            PlayerPrefs.SetInt("HighScore", score);
+           
         }
 
 
 
     }
-    void SetPageState(PageState state) {
-        switch (state) {
+    void SetPageState(PageState state)
+    {
+        switch (state)
+        {
             case PageState.Game:
                 startPage.SetActive(false);
                 gameOverPage.SetActive(false);
@@ -94,20 +94,22 @@ public class GameManager : MonoBehaviour
                 boardGame.SetActive(false);
                 break;
 
-           
+
         }
     }
-    public void ConfirmGameOver() {
+    public void ConfirmGameOver()
+    {
         SetPageState(PageState.Start);
-        
-        
+
+
 
     }
-    public void StartGame() {
-       SetPageState(PageState.Game);
+    public void StartGame()
+    {
+        SetPageState(PageState.Game);
         ScorePointScript scorepointscript = gamePage.GetComponentInChildren<ScorePointScript>();
         scorepointscript.punteggio = 0;
-       
+
 
 
     }

@@ -6,20 +6,20 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Text))]
 public class ScorePointScript : MonoBehaviour
 {
-   
+
     public int punteggio;
-     Text score;
+    Text score;
     // Start is called before the first frame update
     void OnEnable()
     {
-        
+
         score = GetComponent<Text>();
-          score.text = "0";
-        
+        score.text = "0";
+
     }
     private void OnDisable()
     {
-        
+
     }
 
     // Update is called once per frame

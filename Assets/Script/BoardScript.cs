@@ -13,8 +13,7 @@ public class BoardScript : MonoBehaviour
     public GameObject spawn;
     private GameObject[,] cubearray;
     public float colorcheck = 0;
-    int score=0;
-    int highScore = 0;
+    int score = 0;
     int countdown;
 
     // Start is called before the first frame update
@@ -22,14 +21,13 @@ public class BoardScript : MonoBehaviour
     {
         score = 0;
         PlayerPrefs.SetInt("Score", score);
-        PlayerPrefs.SetInt("HighScore", highScore);
+       
         cubearray = new GameObject[width, height];
         SetUp();
         Invoke("checkColor", 0.2f);
-        
-        countdown = 120;
+        countdown = 10;
         StartCoroutine("Countdown");
-        
+
 
 
     }
@@ -240,41 +238,44 @@ public class BoardScript : MonoBehaviour
             {
                 score = score + (int)hitpoint;
                 PlayerPrefs.SetInt("Score", score);
+             
             }
             OnScored();
-            
-            
+
+
 
             //Calcolo Aggiunta Tempo
-            
-                countdown = countdown + (10 + ((int)Mathf.Pow((((int)numerocubidistrutti - 2) / 3), 2)));
-            
+
+            countdown = countdown + (10 + ((int)Mathf.Pow((((int)numerocubidistrutti - 2) / 3), 2)));
+
 
         }
 
-       
+
 
 
     }
-    public void DestroyallSpawn() {
+    public void DestroyallSpawn()
+    {
         for (int i = 0; i < width; i++)
         {
             for (int j = 0; j < height; j++)
             {
+               
                 Destroy(cubearray[i, j]);
 
 
-                   
-            } 
-        } 
-                    
+
+            }
+        }
+
     }
     IEnumerator Countdown()
     {
         PlayerPrefs.SetInt("Time", countdown);
         while (countdown > 0)
         {
-           
+
             countdown = (countdown - 1);
             yield return new WaitForSeconds(1);
             PlayerPrefs.SetInt("Time", countdown);
