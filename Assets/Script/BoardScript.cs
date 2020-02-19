@@ -25,7 +25,7 @@ public class BoardScript : MonoBehaviour
         cubearray = new GameObject[width, height];
         SetUp();
         Invoke("checkColor", 0.2f);
-        countdown = 10;
+        countdown = 120;
         StartCoroutine("Countdown");
 
 
