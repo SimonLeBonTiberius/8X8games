@@ -64,7 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\BoardScript.cs" />
+    <Compile Include="Assets\Script\CountDownText.cs" />
     <Compile Include="Assets\Script\CubeScript.cs" />
+    <Compile Include="Assets\Script\GameManager.cs" />
+    <Compile Include="Assets\Script\HighScoreScript.cs" />
+    <Compile Include="Assets\Script\ScorePointScript.cs" />
     <Compile Include="Assets\Script\SpawnScript.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/GitHub/8X8games/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
