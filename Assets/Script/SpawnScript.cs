@@ -12,7 +12,7 @@ public class SpawnScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spawnCube();
+        SpawnCube();
         empty = false;
 
     }
@@ -22,13 +22,13 @@ public class SpawnScript : MonoBehaviour
     {
         if (empty)
         {
-            Invoke("spawnCube", 0.1f);
+            Invoke("SpawnCube", 0.1f);
             empty = false;
         }
 
     }
 
-    void spawnCube()
+    void SpawnCube()
     {
         GameObject spawncube = Instantiate(cube, gameObject.transform.position, gameObject.transform.rotation, gameObject.transform);
         spawncube.GetComponent<CubeScript>().index = this.index;

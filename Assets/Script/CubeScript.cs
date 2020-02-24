@@ -30,12 +30,12 @@ public class CubeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        sprite.color = coloreRandom();
+        sprite.color = ColoreRandom();
         BoardScript boardscript = this.GetComponentInParent<BoardScript>();
         if (boardscript != null)
         {
             if (boardscript.colorcheck > 0)
-                boardscript.Invoke("checkColor", 0.2f);
+                boardscript.Invoke("CheckColor", 0.2f);
         }
 
     }
@@ -43,13 +43,10 @@ public class CubeScript : MonoBehaviour
     void Update()
     {
 
-        if (isIncontact)
-        {
-            trans.Rotate(0f, 0f, 45f);
-        }
+       
 
     }
-    public Color coloreRandom()
+    public Color ColoreRandom()
     {
         float numerorand = Random.Range(1, 6);
         switch (numerorand)
@@ -106,7 +103,7 @@ public class CubeScript : MonoBehaviour
 
     }
 
-    public void destroyCube()
+    public void DestroyCube()
     {
         Destroy(gameObject);
         SpawnScript script = GetComponentInParent<SpawnScript>();

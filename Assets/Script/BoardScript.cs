@@ -24,7 +24,7 @@ public class BoardScript : MonoBehaviour
        
         cubearray = new GameObject[width, height];
         SetUp();
-        Invoke("checkColor", 0.2f);
+        Invoke("CheckColor", 0.2f);
         countdown = 120;
         StartCoroutine("Countdown");
 
@@ -74,7 +74,7 @@ public class BoardScript : MonoBehaviour
             }
             if (assegnato)
             {
-                destroyAreaColor(indicetoccox, indicetoccoy);
+                DestroyAreaColor(indicetoccox, indicetoccoy);
             }
 
         };
@@ -99,7 +99,7 @@ public class BoardScript : MonoBehaviour
     }
 
 
-    public void checkColor()
+    public void CheckColor()
     {
         colorcheck++;
         float numerocolore;
@@ -160,7 +160,7 @@ public class BoardScript : MonoBehaviour
 
     }
 
-    public void destroyAreaColor(int i, int j)
+    public void DestroyAreaColor(int i, int j)
     {
         CubeScript cubocorrente = cubearray[i, j].GetComponentInChildren<CubeScript>();
         float numerocolore = cubocorrente.numerocol;
@@ -219,7 +219,7 @@ public class BoardScript : MonoBehaviour
 
         foreach (CubeScript cuboindistruzione in listacubitobedestroyed)
         {
-            cuboindistruzione.destroyCube();
+            cuboindistruzione.DestroyCube();
             SpawnScript script = cuboindistruzione.GetComponentInParent<SpawnScript>();
             if (script != null)
             { script.empty = true; }
